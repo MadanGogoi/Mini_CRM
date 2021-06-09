@@ -17,7 +17,7 @@ use App\Http\Controllers\EmployeeController;
 */
 Route::get('/', function () {
     return view('welcome');
-});
+})->middleware('auth');
 
 Route::get('/company',[CompanyController::class, 'create']);
 
