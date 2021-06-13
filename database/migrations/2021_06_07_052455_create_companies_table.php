@@ -19,10 +19,12 @@ class CreateCompaniesTable extends Migration
             $table->string('email')->unique();
             $table->text('logo')->nullable();
             $table->text('website');
-            $table->foreignId('isadmin');
+            $table->text('address');
+            $table->text('phone');
+            $table->foreignId('user_id');
             $table->timestamps();
 
-            $table->foreign('isadmin')
+            $table->foreign('user_id')
                   ->references('id')
                   ->on('users')
                   ->onDelete('cascade');

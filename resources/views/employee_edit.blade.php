@@ -1,33 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Employee Edit </title>
-</head>
-<body> 
-    <h1> Edit Form </h1>
-    <Form method="POST" action="/employee/{{$company->id}}/{{$data->id }}">
+@extends('layouts.app1')
+
+@section('content')
+
+    <div class ="ms-3">
+        <h4>
+            Edit Form
+        </h4>
+    </div>
+
+    <form action="/employee/{{$company->id}}/{{$data->id }}" class="row g-3" method="POST">
         @csrf
         @method('PUT')
 
-        <label for="Name">  First Name </label>
-        <input type="text" id="first_name" name ="first_name" value = {{ $data->First_name}}> <br><br>
-        <label for="Name"> Last Name </label>
-        <input type="text" id="last_name" name ="last_name" value={{ $data->Last_name}}> <br><br>
-        <label for="Name"> Email </label>
-        <input type="text" id="email" name ="email" value={{ $data->email}}> <br><br>
-        <label for="Name"> Phone Number  </label>
-        <input type="text" id="phone" name ="phone" value={{ $data->phone }}> <br><br>
-        
-        <button type = "submit"> Submit </button>
+        <div class="col-md-4 ms-3">
+            <label for="inputFirstName" class="form-label"> First Name </label>
+            <input type="text" id="first_name" name ="first_name" value = {{ $data->First_name }} class="form-control">
+        </div>
 
-        <a href="/employee/{{$company->id}}/{{$data->id }}">
-            <button>
-                Go Back
-            </button>
-        </a>
-    </Form>
-</body>
-</html>
+        <div class="col-md-4">
+            <label for="inputLastName" class="form-label"> Last Name </label>
+            <input type="text" id="last_name" name ="last_name" value={{ $data->Last_name }} class="form-control">
+        </div>
+
+        <div class="col-md-4 ms-3">
+            <label for="inputp" class="form-label"> Email </label>
+            <input type="email" id="email" name ="email" value={{ $data->email }} class="form-control">
+        </div>
+
+        <div class="col-md-4">
+            <label for="mobileNumber" class="form-label"> Mobile No. </label>
+            <input type="text" id="phone" name ="phone" value={{ $data->phone }} class="form-control">
+        </div>
+
+        <div class="col-12 ms-3">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+
+@endsection

@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\company;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\User;
 
 class companyFactory extends Factory
 {
@@ -22,8 +23,11 @@ class companyFactory extends Factory
     public function definition()
     {
         return [
+            'user_id' => User::factory(),
             'name' => $this->faker->name(),
             'email' => $this->faker->unique()->safeEmail(),
+            'address' => $this->faker->word(),
+            'phone' => $this->faker->randomNumber(9, true),
         ];
     }
 }

@@ -1,4 +1,4 @@
-@extends('layouts.style_for_all')
+@extends('layouts.app1')
 
 @section('content')
 
@@ -6,22 +6,38 @@
         <h1>
             Create a company
         </h1>
-        
-            <Form method="POST" action="/company" enctype="multipart/form-data">
-                @csrf
-                <div class ="form-group">
-                    <label for="Name"> Company Name </label>
-                    <input type="text" id="name" name ="name"> <br><br>
-                    <label for="email"> Company Email </label>
-                    <input type="text" id="email" name ="email"> <br><br>
-                    <label for="Logo">Logo </label>
-                    <input type="file" id="file" name="file"><br><br>
-                    <label for="Website"> Website</label>
-                    <input type="text" id="website" name="website"><br><br>
-            
-                    <button type = "submit"> Submit </button>
-                </div>
-            </Form>
     </div>
     
+    <form class ="row g-3" action="/company" method="POST" enctype="multipart/form-data">
+        @csrf
+
+        <div class="col-md-4 ms-3">
+            <label for="inputName" class="form-label"> Company Name </label>
+            <input type="text" id="name" name ="name" class="form-control">
+        </div>
+        <div class="col-md-4 ms-3">
+            <label for="inputEmail" class="form-label"> Company Email </label>
+            <input type="email" class="form-control" id="email" name ="email">
+        </div>
+        <div class="col-8 ms-3">
+            <label for="InputAddress" class="form-label"> Company Address </label>
+            <input type="text" id="address" name ="address" class="form-control">
+        </div>
+        <div class="col-md-4 ms-3">
+            <label for="InputPhone" class="form-label"> Company Phone </label>
+            <input type="text" id="phone" name ="phone" class="form-control">
+        </div>
+        <div class="col-md-4 ms-3">
+            <label for="InputWebsite" class="form-label"> Company Website </label>
+            <input type="text" id="website" name ="website" class="form-control">
+        </div>
+        <div class="col-md-4 ms-3">
+            <label for="InputLogo" class="form-label"> Company Logo </label>
+            <input type="file" id="logo" name ="logo" class="form-control">
+        </div>
+        <div class="col-12 ms-3">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+            
 @endsection

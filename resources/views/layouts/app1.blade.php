@@ -1,13 +1,10 @@
-<!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Laravel</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -73,6 +70,19 @@
             </div>
         </nav>
 
+
+        <div class ="ms-4">
+            <nav class ="nav">
+                <a class ="nav-link active" href="/"> Companies  </a>
+                <a class = "nav-link" href="/employee/show" > Employees </a>
+                <a class = "nav-link" href="#" > Products  </a>
+                <a class = "nav-link" href="#" >  Contact </a>
+                <a class = "nav-link ms-auto me-4" href="#" >  Settings </a>
+                <a class = "nav-link" href="/company">  Create Company </a>
+                <a class = "nav-link " href="/employee/create">  Employee Add  </a>
+
+            </nav>
+        </div>   
        
 
         <main class="py-4">

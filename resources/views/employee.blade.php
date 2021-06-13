@@ -1,38 +1,47 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    <h1>
+@extends('layouts.app1')
+
+@section('content')
+    <h1 class="ms-3">
         Add an Employee
     </h1>
-    <Form method="POST" action="/employee/">
+    <form action="/employee" class="row g-3" method="POST">
         @csrf
-        <label for="Name">  First Name </label>
-        <input type="text" id="first_name" name ="first_name"> <br><br>
-        <label for="Name"> Last Name </label>
-        <input type="text" id="last_name" name ="last_name"> <br><br>
-        <label for="Name"> Email </label>
-        <input type="text" id="email" name ="email"> <br><br>
-        <label for="Name"> Phone Number  </label>
-        <input type="text" id="phone" name ="phone"> <br><br>
 
-        <label for="company"> Select Company </label>
+        <div class="col-md-4 ms-3">
+            <label for="inputFirstName" class="form-label"> First Name </label>
+            <input type="text" id="first_name" name ="first_name" class="form-control">
+        </div>
 
-        <select name="company" id="company">
-            @foreach($datas as $data)
-                <option value=" {{ $data->id }} ">
-                    {{ $data->name }}
-                </option> 
-            @endforeach
-        </select>
-        <br>
+        <div class="col-md-4">
+            <label for="inputLastName" class="form-label"> Last Name </label>
+            <input type="text" id="last_name" name ="last_name" class="form-control">
+        </div>
 
-        <button type = "submit"> Submit </button>
-    </Form>
-</body>
-</html>
+        <div class="col-md-4 ms-3">
+            <label for="inputp" class="form-label"> Email </label>
+            <input type="email" id="email" name ="email" class="form-control">
+        </div>
+
+        <div class="col-md-4">
+            <label for="mobileNumber" class="form-label"> Mobile No. </label>
+            <input type="text" id="phone" name ="phone" class="form-control">
+        </div>
+        
+        <div class="col-md-4 ms-3">
+            <label for="companySelect" class="form-label"> Company </label>
+            <select class="form-select" name="company_id" id="company">
+                <option selected> Choose a company</option>
+                @foreach($datas as $data)
+                    <option value="{{ $data->id }} ">
+                        {{ $data->name }}
+                    </option> 
+                @endforeach
+            </select>
+        </div>
+
+        <div class="col-12 ms-3">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+
+@endsection
