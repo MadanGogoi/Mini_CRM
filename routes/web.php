@@ -20,18 +20,17 @@ use App\Http\Controllers\EmployeeController;
 
 
 
-Route::middleware(['auth'])->group(function () {
+
    
     Route::get('/', function () {
         return view('welcome',[
             'companies' => App\Models\company::where('user_id', auth()->id())->paginate(10)
     
         ]);
-    })->name('home');
+    })->middleware('auth')->name('home');
 
     Route::get('/employee/show',[EmployeeController::class, 'show']);
     
-});
 
     Route::get('/company',[CompanyController::class, 'create']);
     Route::post('/company',[CompanyController::class, 'store']);
