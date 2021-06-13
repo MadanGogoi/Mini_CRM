@@ -71,5 +71,13 @@ class CompanyController extends Controller
 
         return redirect('/home');
     }
+
+    public function view(){
+        $company = company::where('user_id', auth()->id())->paginate(10);
+
+        //dd($companies);
+
+        return view('welcome',['companies' => $company]);
+    }
     
 }

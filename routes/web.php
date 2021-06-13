@@ -22,12 +22,7 @@ use App\Http\Controllers\EmployeeController;
 
 
    
-    Route::get('/', function () {
-        return view('welcome',[
-            'companies' => App\Models\company::where('user_id', auth()->id())->paginate(10)
-    
-        ]);
-    })->middleware('auth')->name('home');
+    Route::get('/', [CompanyController::class, 'view'])->middleware('auth')->name('home');
 
     Route::get('/employee/show',[EmployeeController::class, 'show']);
     
