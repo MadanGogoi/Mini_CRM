@@ -69,7 +69,7 @@ class CompanyController extends Controller
 
         $company-> delete();
 
-        return redirect('/home');
+        return redirect('/');
     }
 
     public function view(){
